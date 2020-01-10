@@ -36,11 +36,10 @@ class AlbumSerializer(serializers.ModelSerializer):
 
 #images
 class ImageuploadSerializer(serializers.ModelSerializer):
-    result_file = serializers.SerializerMethodField()
-
+    #result_file = serializers.SerializerMethodField()
     class Meta:
         model = Imageupload
         fields = '__all__'
 
-    def get_result_file(self, obj):
-        return(obj.image_file.name.split('.')[-2] + '_matting.' + obj.image_file.name.split('.')[-1])
+    #def get_result_file(self, obj):
+    #    return(obj.image_file.name.split('.')[-2] + '_matting.' + obj.image_file.name.split('.')[-1])

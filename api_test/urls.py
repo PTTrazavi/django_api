@@ -24,11 +24,12 @@ from django.conf.urls.static import static
 router = DefaultRouter()
 router.register(r'music', views.MusicViewSet)
 router.register(r'album', views.AlbumViewSet)
+router.register(r'imageupload', views.ImageuploadViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('bot/', include('bot.urls'))
+    #path('bot/', include('bot.urls')),
 ]
 
 if settings.DEBUG:
