@@ -20,7 +20,9 @@ class album(models.Model):
 #from django.core.files.storage import default_storage #GCS
 class Imageupload(models.Model):
     image_file = models.ImageField(upload_to='images/')
-    #result_file = models.TextField()
+    deeplab_file = models.ImageField(upload_to='images/', blank=True)
+    mask_file = models.ImageField(upload_to='images/', blank=True)
+    trimap_file = models.ImageField(upload_to='images/', blank=True)
     result_file = models.ImageField(upload_to='images/', blank=True)
     readiness = models.CharField(max_length=1, default='0')
     date_of_upload = models.DateTimeField(auto_now_add = True)

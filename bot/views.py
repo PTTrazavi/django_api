@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.parsers import FileUploadParser
 #from rest_framework.views import APIView
-from .util import imgtool#, google_image, flickr_image, seg_img2, seg_matting
+from .util import imgtool, seg_img2, seg_matting
 
 # Create your views here.
 class MusicViewSet(viewsets.ModelViewSet):
@@ -27,7 +27,10 @@ class ImageuploadViewSet(viewsets.ModelViewSet):
         image.readiness = "1"
         image.save()
         serializer = ImageuploadSerializer(image)
-        imgtool(pk)
+        #imgtool(pk)
+        pk_same = seg_img2(pk)
+        result_url = seg_matting(pk_same)
+
         return Response(serializer.data)
 """
 class ImageuploadView(APIView):
